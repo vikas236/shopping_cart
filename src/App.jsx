@@ -2,6 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import Home from "./home";
 import "./App.css";
+import "./App_responsive.css";
 import Cart from "./cart";
 
 function App({ page }) {

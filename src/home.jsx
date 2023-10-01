@@ -31,9 +31,18 @@ function Home({ cartItems, setCartItems }) {
   // add item to cart array
   function AddToCart() {
     function add(e) {
-      const image = e.target.parentElement.nextSibling.src;
+      const image = e.target.parentElement.nextSibling.childNodes[0].src;
+      let cartImgs = [];
 
-      if (cart.indexOf(image) === -1) cart.unshift([image, price]);
+      if (cart.length > 0) cartImgs = cart.map((e) => e[0]);
+
+      if (cartImgs.length === 0 || cartImgs.indexOf(image) === -1) {
+        cart.unshift([image, price]);
+        e.target.innerHTML = `Added
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path d="M19 14V16H6V15H5V11H4V8H3V3H1V1H5V4H21V8H20V11H19V12H7V14H19M5 7H6V10H18V7H19V6H5V7M7 17H9V18H10V20H9V21H7V20H6V18H7V17M15 17H17V18H18V20H17V21H15V20H14V18H15V17Z" />
+        </svg>`;
+      }
     }
 
     const price = Math.floor(Math.random() * 10) + 1;
@@ -56,10 +65,11 @@ function Home({ cartItems, setCartItems }) {
     let result = "";
     if (data) {
       result = data.map((l, i) => {
-        const link = l.src.medium;
+        const thumbnail = l.src.medium;
+        const original = l.src.original;
         return (
           <div
-            key={link}
+            key={thumbnail}
             className="image"
             onMouseOver={(e) => handleHover(e, i)}
             onMouseOut={(e) => handleHover(e, i)}
@@ -67,7 +77,19 @@ function Home({ cartItems, setCartItems }) {
             <div className="label">
               <AddToCart />
             </div>
-            <img key={link} src={link} className="photo" alt="photo" />
+            <a
+              className="original_image"
+              href={original}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                key={thumbnail}
+                src={thumbnail}
+                className="photo"
+                alt="photo"
+              />
+            </a>
           </div>
         );
       });
@@ -118,9 +140,13 @@ function Home({ cartItems, setCartItems }) {
           type="text"
           onKeyDown={(e) => (e.key === "Enter" ? handleSearch(e) : "")}
         />
-        <button className="search" onClick={handleSearch}>
-          Search
-        </button>
+        <svg
+          className="search"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path d="M9.5,4C13.09,4 16,6.91 16,10.5C16,12.12 15.41,13.6 14.43,14.73L20.08,20.38L19.37,21.09L13.72,15.44C12.59,16.41 11.11,17 9.5,17C5.91,17 3,14.09 3,10.5C3,6.91 5.91,4 9.5,4M9.5,5C6.46,5 4,7.46 4,10.5C4,13.54 6.46,16 9.5,16C12.54,16 15,13.54 15,10.5C15,7.46 12.54,5 9.5,5Z" />
+        </svg>
         <Link to="cart" onClick={handleCart}>
           <svg
             onClick={handleCart}

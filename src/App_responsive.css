@@ -1,0 +1,138 @@
+@media (max-width: 850px) {
+  /* navbar  */
+  .navbar {
+    height: 30px;
+    margin-top: 5px;
+  }
+
+  /* home button */
+  .navbar .home {
+    width: 25px;
+  }
+
+  /* search box */
+  input {
+    width: 60%;
+    height: 26px;
+  }
+
+  /* search button */
+  .search {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* search button */
+  button {
+    height: 30px;
+  }
+
+  /* images container */
+  .container {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+
+  /* images */
+  img {
+    height: 90vw;
+  }
+
+  /* label on image */
+  .label {
+    height: 50px;
+    bottom: -50px;
+    font-size: 12px;
+  }
+
+  /* buttons on label */
+  .label_action {
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  /* cart button in navbar */
+  .cart {
+    width: 33px;
+    height: 33px;
+  }
+
+  /* cart navbar */
+  .cart_nav {
+    width: 95vw;
+  }
+
+  /* Increment and decrement of quantity buttons */
+  .increment,
+  .decrement {
+    width: 30px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 1280px) {
+  /* navbar  */
+  .navbar {
+    height: 35px;
+    margin-top: 10px;
+  }
+
+  /* home button */
+  .navbar .home {
+    width: 25px;
+  }
+
+  /* search box */
+  input {
+    width: 75%;
+    height: 27px;
+  }
+
+  /* search button */
+  button {
+    height: 38px;
+  }
+
+  /* images container */
+  .container {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* images */
+  img {
+    height: 300px;
+  }
+
+  /* label on image */
+  .label {
+    height: 55px;
+    bottom: -55px;
+    font-size: 13px;
+  }
+
+  /* buttons on label */
+  .label_action {
+    width: 100px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  /* cart button in navbar */
+  .cart {
+    width: 35px;
+    height: 35px;
+  }
+
+  /* Increment and decrement of quantity buttons */
+  .increment,
+  .decrement {
+    width: 30px;
+    height: 35px;
+    font-size: 18px;
+  }
+}
